@@ -1,0 +1,57 @@
+<html>
+<head>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript">
+function validate()
+{
+ var email=$("#email").val();
+ var pass=$("#password").val();
+ var con_pass=$("#conf_password").val();
+
+ 
+ var pattern=/^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
+ //var password_regex1=/([a-z].*[A-Z])|([A-Z].*[a-z])([0-9])+([!,%,&,@,#,$,^,*,?,_,~])/;
+ //var password_regex2=/([0-9])/;
+ //var password_regex3=/([!,%,&,@,#,$,^,*,?,_,~])/;
+
+ if(email=='') 
+ {
+  alert("Please Enter a Email");	
+ }
+ else if(pattern.test(email)==false) 
+ {
+   alert("Please Enter a currect email Id, Thank You!!!");
+ }
+ else if(pass.length <= 3 )//|| password_regex2.test(pass)==false)// || password_regex2.test(pass)==false || password_regex3.test(pass)==false)
+ {
+  alert("Please Enter Strong Password");
+  return false;
+ }
+ else if(pass!==con_pass)
+ {
+    alert("Both password are not same!");
+    return false;
+ }
+ else
+ {
+  return true;
+ }
+}
+</script>
+<script>
+   h2{
+      align:center;
+   }
+</script>
+</head>
+<body>
+ 
+   <h1 style="text-align:center; color:blue;">SIGNUP FORM</h2>
+         <form method="post" onsubmit="return validate();" style="text-align:center;border:1;"><br> 
+               Email : <input type="text" id="email" placeholder="Enter Email"><br><br>
+               Password : <input type="password" id="password" placeholder="*******"><br><br>
+               Confirm Password : <input type="password" id="conf_password" placeholder="*******"><br><br>
+               <br><input type="submit" id="submit" name="submit" value="SUBMIT" style="btn btn-primary">           
+         </form>       
+</body>
+</html>
