@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="jquery.js"></script>
+
+</head>
+<body>
+
+<h1>This is a heading line</h1>
+
+<p>First Paragraph.</p>
+<p>Second Paragraph.</p>
+
+<button>Click me to hide paragraphs</button>
+<script>
+    $(document).ready(function(){
+      $("button").click(function(){
+        $("p").hide();
+      });
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Demo</title>
+    <style>
+        .test
+        {                               //using css....
+            font-weight: bold;
+            color:green;
+        }
+    </style>    
+</head>
+<body>
+   
+    <script src="jquery.js"></script>
+    <a href="google.com">Click here</a>
+    <div class="test">
+        <h1>Asif</h1>
+    </div>
+    <script>
+ $(document).ready(function()       //using jquery...
+ {
+    $("a").click(function(event) 
+    {
+     alert( "As you can see, the Click Area is no longer took you to google.com" );
+     event.preventDefault();
+    });
+});
+
+    </script>
+</body>
+</html>
