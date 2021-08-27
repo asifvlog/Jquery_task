@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>select many tags</title>
+    <script src="jquery.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("button").click(function(){
+                $("h1,p,h2").hide();
+            });
+        });
+    </script>
+</head>
+<body>
+    <h1>When you click button,then i'll hide my self</h1>
+    <p>When you click button,then i'll hide my self</p>
+    <h2>When you click button,then i'll hide my self</h2>
+    <button>click me</button>
+</body>
+</html>
