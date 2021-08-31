@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>parent method (Ancestor)</title>
+    <script src="../jquery.js"></script>
+    <style>    
+        #main_outer
+        {
+            background-color: lightgrey;
+            width: 30%;
+            padding: 0px;
+            margin: 0px;
+        }
+        #outer
+        {
+            background-color: greenyellow;
+            width: 80%;
+            padding:0px;
+            margin: 40px;
+        }
+        #inner
+        {
+            background-color:goldenrod;
+            width: 70%;
+            padding:0px;
+            margin: 40px;
+        }
+        #child-area
+        {
+            background-color: brown;
+            width: 60%;
+            padding:0px;
+            margin: 40px;
+        }
+        #sub-child-area
+        {
+            background-color: #54df99;
+            width: 50%;
+            padding:0px;
+            margin: 35px;
+        }
+    </style>
+</head>
+<body>
+    <h1>jQuery Ancestor Method</h1>
+    <div id="main_outer">
+    <h1>Main Outer Area</h1>
+        <div id="outer">
+        <h2>Outer Area</h2>
+            <div id="inner">
+            <h3>Inner Area</h3>
+                <div id="child-area">
+                <h4>Child Area</h4> 
+                    <div id="sub-child-area">
+                        <h5>Sub-Inner Child</h5>
+                        <div class="test">A</div>
+                        <div>B</div>
+                        <div class='child_c'>C</div>
+                        <div>D</div>
+                        <div class="test">E</div>
+                    </div>    
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // $(document).ready(function(){
+        //     $('.child_c').siblings().css('background', 'blue')
+        // });
+
+        // $(document).ready(function(){
+        //     $('.child_c').siblings('h5').css('background', 'blue')
+        // });
+
+        // $(document).ready(function(){
+        //     $('.child_c').siblings('.test').css('background', 'blue')
+        // });
+
+        // $(document).ready(function(){
+        //     $('.child_c').next().css('background', 'blue')
+        // });
+
+        // $(document).ready(function(){
+        //     $('.child_c').prev().css('background', 'blue')
+        // });
+
+        // $(document).ready(function(){
+        //     $('.child_c').nextAll().css('background', 'blue')
+        // });
+
+        // $(document).ready(function(){
+        //     $('.child_c').prevAll().css('background', 'blue')
+        // });
+
+        // $(document).ready(function(){
+        //     $('.child_c').nextUntil('.test').css('background', 'blue')
+        // });
+
+        $(document).ready(function(){
+            $('.child_c').prevUntil('.test').css('background', 'blue')
+        });
+    </script>
+</body>
+</html>

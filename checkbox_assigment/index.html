@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkbox</title>
+    <script src="jquery.js"></script>
+    <style>
+        ul
+        {
+            list-style: none;
+            margin: 5px;
+        }
+        li
+        {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li><input type="checkbox">Item 1
+            <ul>
+                <li><input type="checkbox">Sub Item 1.1</li>
+                <li><input type="checkbox">Sub Item 1.2</li>
+                <li><input type="checkbox">Sub Item 1.3</li>
+            </ul>
+        </li>
+        <li><input type="checkbox">Item 2
+            <ul>
+                <li><input type="checkbox">Sub Item 2.1</li>
+                <li><input type="checkbox">Sub Item 2.2</li>
+                <li><input type="checkbox">Sub Item 2.3</li>
+            </ul>
+        </li>
+    </ul>
+
+    <script>
+        $('input[type="checkbox"]').change(function(e){
+            var checked = $(this).prop("checked"),
+                container= $(this).parent(),
+                siblings = container.siblings();
+
+            container.find('input[type="checkbox"]').prop({
+                indeterminate: false,
+                checked: checked
+            });
+
+            function checkSiblings(el)
+            {
+                var parent = el.parent().parent(),
+                all = true;
+
+                el.siblings().each(function()
+                {
+                    return all = ($(this).children('input[type="checkbox"]').prop("checked") === checked);
+                });
+
+                if(!all && checked)
+                {
+                    parent.children('input[type="checkbox"]').prop({
+                        indeterminate:false,
+                        checked:checked
+                    });
+
+                    checkSiblings(parent);
+                }
+                else if(all && !checked)
+                {
+                    parent.children('input[type="checkbox"]').prop("checked", checked);
+                    parent.children('input[type="checkbox"]').prop("indeterminate",
+                    (parent.find('input[type="checkbox"]:checked').length > 0));
+                    
+                    checkSiblings(parent);
+                }
+                else
+                {
+                    el.parent("li").children('input[type="checkbox"]').prop({
+                        indeterminate: true,
+                        checked: false
+                    });
+                }
+            }  
+            checkSiblings(container);
+        });
+    </script>    
+</body>
+</html>

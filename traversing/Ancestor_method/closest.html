@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>parent method (Ancestor)</title>
+    <script src="jquery.js"></script>
+    <style> 
+         
+        #main_outer
+        {
+            background-color: lightgrey;
+            width: 30%;
+            padding: 0px;
+            margin: 0px;
+        }
+        #outer
+        {
+            background-color: greenyellow;
+            width: 80%;
+            padding:0px;
+            margin: 40px;
+        }
+        #inner
+        {
+            background-color:goldenrod;
+            width: 70%;
+            padding:0px;
+            margin: 40px;
+        }
+        #child-inner
+        {
+            background-color: brown;
+            width: 60%;
+            padding:0px;
+            margin: 40px;
+        }
+        #sub-inner-child
+        {
+            background-color: #54df99;
+            width: 50%;
+            padding:0px;
+            margin: 35px;
+        }
+    </style>
+</head>
+<body>
+    <h1>jQuery Ancestor Method</h1>
+    <div id="main_outer">
+    <h1>Main Outer Area</h1>
+        <div id="outer">  
+        <h2>Outer Area</h2>
+            <div id="inner">
+            <h3>Inner Area</h3>
+                <div id="child-inner">
+                <h4>Inner Child</h4> 
+                    <div id="sub-inner-child">
+                        <h5>Sub-Inner Child</h5>
+                        <p>Sub-child -> A</p>
+                        <p>Sub-child -> B</p>
+                        <p id="child-c">Sub-child -> C</p>
+                    </div>    
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function(){
+            $("#inner").closest('div').css('background-color', 'red');
+        });
+    </script>
+</body>
+</html>
