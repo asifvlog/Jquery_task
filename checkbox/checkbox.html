@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkbox</title>
+    <script src="jquery.js"></script>
+    <style>
+        ul
+        {
+            list-style: none;
+            margin: 5px;
+        }
+        li
+        {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <select name="aaa" id="bbb">
+        <option selected>---Select Option---</option>
+        <option value="a">A</option>
+        <option value="b">B</option>
+        <option value="c">C</option>
+        <option value="d">D</option>
+      </select>
+    <ul>
+        <li><input type="checkbox">Property
+            <ul>
+                <li><input type="checkbox">Edit property</li>
+                <li><input type="checkbox">Remove property</li>
+                <li><input type="checkbox">Add property</li>
+            </ul>
+        </li>
+        <li><input type="checkbox">Testimonial
+            <ul>
+                <li><input type="checkbox">Add</li>
+                <li><input type="checkbox">Remove</li>
+                <li><input type="checkbox">View</li>
+                <li><input type="checkbox">Edit</li>
+            </ul>
+        </li>
+        <li><input type="checkbox">Users
+            <ul>
+                <li><input type="checkbox">Edit user</li>
+                <li><input type="checkbox">View User LIst</li>
+                <li><input type="checkbox">Add user</li>
+            </ul>
+        </li>
+        <li><input type="checkbox">Membership
+            <ul>
+                <li><input type="checkbox">Add Membership</li>
+                <li><input type="checkbox">Remove Membership</li>
+                <li><input type="checkbox">Edit Membership</li>
+            </ul>
+        </li>
+    </ul>
+
+    <script>
+        $('input[type="checkbox"]').change(function(e){
+            var checked = $(this).prop("checked"),
+                container= $(this).parent(),
+                siblings = container.siblings();
+
+            container.find('input[type="checkbox"]').prop({
+                indeterminate: false,
+                checked: checked
+            });
+
+            function checkSiblings(el)
+            {
+                var parent = el.parent().parent(),
+                all = true;
+
+                el.siblings().each(function()
+                {
+                    return all = ($(this).children('input[type="checkbox"]').prop("checked") === checked);
+                });
+
+                if(!all && checked)
+                {
+                    parent.children('input[type="checkbox"]').prop({
+                        indeterminate:false,
+                        checked:checked
+                    });
+
+                    checkSiblings(parent);
+                }
+                else if(all && !checked)
+                {
+                    parent.children('input[type="checkbox"]').prop("checked", checked);
+                    parent.children('input[type="checkbox"]').prop("indeterminate",
+                    (parent.find('input[type="checkbox"]:checked').length > 0));
+                    
+                    checkSiblings(parent);
+                }
+                else
+                {
+                    el.parent("li").children('input[type="checkbox"]').prop({
+                        indeterminate: true,
+                        checked: false
+                    });
+                }
+            }  
+            checkSiblings(container);
+        });
+    </script>    
+</body>
+</html>
