@@ -1,0 +1,10 @@
+{
+    "name":"asif",
+    "city":"delhi",
+    "mobile":[9876554321,1234567890,1234509876],
+    "laptop":{
+        "model":"HP",
+        "price":40000,
+        "OS":"linux"
+    }
+}

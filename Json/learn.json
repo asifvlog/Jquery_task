@@ -1,0 +1,32 @@
+[
+    {
+        "name":"asif",
+        "city":"delhi",
+        "mobile":[9987654321,1234567890,1234509876],
+        "laptop":{
+            "model":"HP",
+            "price":40000,
+            "OS":"linux"
+        }
+    },
+    {
+        "name":"rakesh",
+        "city":"delhi",
+        "mobile":[9879654321,1234567890,1234509876],
+        "laptop":{
+            "model":"dell",
+            "price":45000,
+            "OS":"Window 10"
+        }
+    },
+    {
+        "name":"subham",
+        "city":"manali",
+        "mobile":[9876554321,1234567890,1234509876]
+    },
+    {
+        "name":"manish",
+        "city":"noida",
+        "mobile":[9876545321,1234567890,1234509876]
+    }
+]
