@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery.js"></script>
+    <style>
+        .frm
+        {
+            background: light grey;
+        }
+        .border
+        {
+            border:1px solid grey;
+            margin-left: 600px;
+            margin-top: 300px;
+            padding:50px;
+            background-color: light grey;
+        }
+        p
+        {
+            color:hotpink;
+            text-align: left;
+        }
+        #rmv
+        {
+            color:rgb(241, 98, 55);
+        }
+        #add
+        {
+            color:rgb(16, 214, 49);
+        }
+    </style>
+</head>
+<body>
+    <form action="" class="frm">
+        <table class="border">
+            <tr>
+                <td><p>Property Image</p></td>
+                <td>
+                    <input id="files" type="file">
+                    <select name="" id="select">
+                        <option selected>---select option</option>
+                        <option value="primary">primary image</option>
+                        <option value="secondry">secondry image</option>
+                    </select>
+                    <a href="#" id="rmv">Remove</a><br><br>
+                    <a href="#" id="add">Add another</a>
+                </td>
+            </tr>
+        </table>
+    </form>
+    
+    <script>
+        $(document).ready(function(){
+            $("#add").click(function(){
+                $('#files, #select').show();
+            });
+        });
+
+        $(document).ready(function(){
+            $('#rmv').click(function(){  
+                $('#files, #select').hide();
+        });
+        });
+    </script>
+</body>
+</html>
